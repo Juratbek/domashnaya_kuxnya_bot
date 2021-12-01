@@ -1,0 +1,51 @@
+{
+  "kind": "collectionType",
+  "collectionName": "clients",
+  "info": {
+    "name": "clients",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "first_name": {
+      "type": "string",
+      "pluginOptions": {},
+      "required": true
+    },
+    "user_name": {
+      "type": "string",
+      "pluginOptions": {}
+    },
+    "status": {
+      "type": "enumeration",
+      "enum": [
+        "ACTIVE",
+        "STOPPED"
+      ],
+      "pluginOptions": {},
+      "default": "ACTIVE",
+      "required": true
+    },
+    "language": {
+      "type": "enumeration",
+      "enum": [
+        "uz",
+        "ru",
+        "en"
+      ],
+      "pluginOptions": {},
+      "default": "uz",
+      "required": true
+    },
+    "chat_id": {
+      "type": "integer",
+      "unique": true,
+      "required": true
+    }
+  }
+}

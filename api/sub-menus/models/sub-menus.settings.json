@@ -1,0 +1,38 @@
+{
+  "kind": "collectionType",
+  "collectionName": "sub_menus",
+  "info": {
+    "name": "sub_menus",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {
+    "i18n": {
+      "localized": true
+    }
+  },
+  "attributes": {
+    "menu_name": {
+      "type": "string",
+      "private": true,
+      "pluginOptions": {
+        "i18n": {
+          "localized": true
+        }
+      },
+      "required": true
+    },
+    "foods": {
+      "collection": "foods",
+      "via": "sub_menu"
+    },
+    "menu": {
+      "via": "sub_menus",
+      "model": "menus"
+    }
+  }
+}
