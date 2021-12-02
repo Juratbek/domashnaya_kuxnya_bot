@@ -7,6 +7,10 @@ bot.action(/^menu_/, async (ctx) => {
   const menuId = ctx.match.input.replace("menu_", "");
   const menuController = strapi.controllers.menus;
   const menuFromDb = await menuService.findById(menuId, menuController);
-  const keyboard = SubMenuKeyboard(menuFromDb.sub_menus, LANGUAGES.EN);
-  ctx.reply("Sub menu", keyboard);
+  const keyboard = SubMenuKeyboard(
+    menuFromDb.sub_menus,
+    menuFromDb.locale,
+    menuId
+  );
+  ctx.editMessageText("Sub menu", keyboard);
 });

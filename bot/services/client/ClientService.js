@@ -9,6 +9,9 @@ class Client {
     client.language = locale;
     await controller.update(client);
   }
+  async create(client, controller) {
+    return await controller.create(client);
+  }
 }
 
 const clientService = new Client();

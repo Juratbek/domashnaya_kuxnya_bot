@@ -604,13 +604,13 @@
           "sub_menu": {
             "required": [
               "id",
-              "menu_name"
+              "name"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "menu_name": {
+              "name": {
                 "type": "string"
               },
               "foods": {

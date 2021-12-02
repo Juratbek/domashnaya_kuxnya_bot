@@ -530,10 +530,13 @@
       "Sub-menus": {
         "required": [
           "id",
-          "menu_name"
+          "name"
         ],
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "name": {
             "type": "string"
           },
           "foods": {
@@ -627,13 +630,13 @@
             "items": {
               "required": [
                 "id",
-                "menu_name"
+                "name"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "menu_name": {
+                "name": {
                   "type": "string"
                 },
                 "foods": {
@@ -677,10 +680,10 @@
       },
       "NewSub-menus": {
         "required": [
-          "menu_name"
+          "name"
         ],
         "properties": {
-          "menu_name": {
+          "name": {
             "type": "string"
           },
           "foods": {

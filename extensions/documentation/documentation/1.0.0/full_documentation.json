@@ -14,7 +14,7 @@
       "name": "Apache 2.0",
       "url": "https://www.apache.org/licenses/LICENSE-2.0.html"
     },
-    "x-generation-date": "11/30/2021 10:08:48 PM"
+    "x-generation-date": "12/02/2021 3:02:14 PM"
   },
   "x-strapi-config": {
     "path": "/documentation",
@@ -4511,13 +4511,13 @@
           "sub_menu": {
             "required": [
               "id",
-              "menu_name"
+              "name"
             ],
             "properties": {
               "id": {
                 "type": "string"
               },
-              "menu_name": {
+              "name": {
                 "type": "string"
               },
               "foods": {
@@ -4658,13 +4658,13 @@
             "items": {
               "required": [
                 "id",
-                "menu_name"
+                "name"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "menu_name": {
+                "name": {
                   "type": "string"
                 },
                 "foods": {
@@ -4781,10 +4781,13 @@
       "Sub-menus": {
         "required": [
           "id",
-          "menu_name"
+          "name"
         ],
         "properties": {
           "id": {
+            "type": "string"
+          },
+          "name": {
             "type": "string"
           },
           "foods": {
@@ -4878,13 +4881,13 @@
             "items": {
               "required": [
                 "id",
-                "menu_name"
+                "name"
               ],
               "properties": {
                 "id": {
                   "type": "string"
                 },
-                "menu_name": {
+                "name": {
                   "type": "string"
                 },
                 "foods": {
@@ -4928,10 +4931,10 @@
       },
       "NewSub-menus": {
         "required": [
-          "menu_name"
+          "name"
         ],
         "properties": {
-          "menu_name": {
+          "name": {
             "type": "string"
           },
           "foods": {

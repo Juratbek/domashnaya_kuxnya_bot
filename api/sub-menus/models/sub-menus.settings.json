@@ -16,9 +16,9 @@
     }
   },
   "attributes": {
-    "menu_name": {
+    "name": {
       "type": "string",
-      "private": true,
+      "private": false,
       "pluginOptions": {
         "i18n": {
           "localized": true

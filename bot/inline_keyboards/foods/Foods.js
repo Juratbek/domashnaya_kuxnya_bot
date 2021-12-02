@@ -1,22 +1,22 @@
 const { Markup } = require("telegraf");
-const { Back, LANGUAGES } = require("../../constants");
+const { Back } = require("../../constants");
 
 const FoodsKeyboardCallbacks = {
-  food: "food",
+  food: "food_pick",
   back: "food_back",
 };
 
-const FoodsKeyboard = (foods = [], locale) => {
+const FoodsKeyboard = (foods = [], locale, mainMenuId) => {
   const keyboard = foods.map((food) => [
     Markup.button.callback(
       food.name || "",
-      `${FoodsKeyboardCallbacks.food}_${food.id}`
+      `${FoodsKeyboardCallbacks.food}_${food.id}_${mainMenuId}`
     ),
   ]);
   keyboard.push([
     Markup.button.callback(
-      Back[locale] || LANGUAGES.UZ,
-      FoodsKeyboardCallbacks.back
+      Back[locale] || Back.uz,
+      `${FoodsKeyboardCallbacks.back}_${mainMenuId}`
     ),
   ]);
   return Markup.inlineKeyboard(keyboard);

@@ -1,26 +1,30 @@
 const { bot } = require("../../bot");
-const { BASE_URL } = require("../../constants");
 const {
   FoodsKeyboardCallbacks,
+  FoodsKeyboard,
 } = require("../../inline_keyboards/foods/Foods");
 const { foodService } = require("../../services");
 
 const regExp = new RegExp(FoodsKeyboardCallbacks.food);
 bot.action(regExp, async (ctx) => {
-  const foodId = ctx.match.input.replace(`${FoodsKeyboardCallbacks.food}_`, "");
+  const [foodId, mainMenuId] = ctx.match.input
+    .replace(`${FoodsKeyboardCallbacks.food}_`, "")
+    .split("_");
   const foodController = strapi.controllers.foods;
   const foodFromDb = await foodService.findById(foodId, foodController);
-  ctx.replyWithMediaGroup([
+  const caption = `${foodFromDb.name}\n${foodFromDb.cost}\n${foodFromDb.information}`;
+  await ctx.replyWithMediaGroup([
     {
-      media:
-        "https://images.pexels.com/photos/10339367/pexels-photo-10339367.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
-      caption: foodFromDb.name,
+      media: "https://www.pexels.com/photo/cooked-food-704569/",
+      caption,
       type: "photo",
     },
-    // {
-    //   media: "./test.jpg",
-    //   caption: foodFromDb.name,
-    //   type: "photo",
-    // },
   ]);
+  const subMenuController = strapi.controllers["sub-menus"];
+  const foods = await foodService.getFoodsListBySubMenuId(
+    foodFromDb.sub_menu.id,
+    subMenuController
+  );
+  const keyboard = FoodsKeyboard(foods, foodFromDb.locale, mainMenuId);
+  ctx.reply("ovqatni tanlang", keyboard);
 });

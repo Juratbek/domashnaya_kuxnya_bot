@@ -81,7 +81,7 @@ ssl
 .idea
 .editorconfig
 .env.example
-.yarn.lock
+yarn.lock
 nbproject
 public/uploads/*
 !public/uploads/.gitkeep
